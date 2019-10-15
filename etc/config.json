@@ -1,0 +1,8 @@
+{
+  "protocol": "lowerbound",
+  "initialTagsNumber": 30,
+  "tagsNumberIncreaseRate": 0.1,
+  "maximumTagsNumber": 300,
+  "iterations": 100,
+  "initialFrameSize": 10
+}
