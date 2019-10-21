@@ -3,13 +3,12 @@ package frame
 import "math/rand"
 
 type Frame struct {
-	Size   int
+	Size            int
 	SuccessfulSlots int
 	CollisionSlots  int
 	EmptySlots      int
-	CompetingTags int
+	CompetingTags   int
 }
-
 
 func (f *Frame) TransmitTags(tagsLen int) {
 	transmissionOrder := f.buildTransmissionOrder(tagsLen)

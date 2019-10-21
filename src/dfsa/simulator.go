@@ -1,18 +1,22 @@
 package dfsa
 
-import "github.com/gustavolopess/dfsa-simulator/src/frame"
+import (
+	"frame"
+	"math"
+)
 
 type Simulator struct {
-	Estimator Estimator
-	InitialTagsLen int
+	Estimator        Estimator
+	InitialTagsLen   int
 	InitialFrameSize int
 }
 
 type SimulationResult struct {
-	SlotsSum int
-	EmptySlots int
+	SlotsSum        int
+	EmptySlots      int
 	SuccessfulSlots int
-	CollisionSlots int
+	CollisionSlots  int
+	EstimationError float64 //adicionado
 }
 
 func (s *Simulator) Run() (result SimulationResult) {
@@ -32,10 +36,10 @@ func (s *Simulator) Run() (result SimulationResult) {
 	return
 }
 
-
 func (r *SimulationResult) computeFrame(fr frame.Frame) {
 	r.SlotsSum += fr.Size
 	r.SuccessfulSlots += fr.SuccessfulSlots
 	r.CollisionSlots += fr.CollisionSlots
 	r.EmptySlots += fr.EmptySlots
+	r.EstimationError += math.Abs(float64(fr.CompetingTags + fr.SuccessfulSlots - fr.Size)) //adicionado
 }
