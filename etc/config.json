@@ -1,8 +1,8 @@
 {
-  "protocol": "lowerbound",
-  "initialTagsNumber": 30,
-  "tagsNumberIncreaseRate": 0.1,
-  "maximumTagsNumber": 300,
-  "iterations": 100,
-  "initialFrameSize": 10
+  "protocol": "vogt",
+  "initialTagsNumber": 100,
+  "tagsNumberIncreaseRate": 100,
+  "maximumTagsNumber": 1000,
+  "iterations": 2000,
+  "initialFrameSize": 64
 }

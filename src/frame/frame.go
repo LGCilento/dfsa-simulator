@@ -8,6 +8,7 @@ type Frame struct {
 	CollisionSlots  int
 	EmptySlots      int
 	CompetingTags   int
+	Backlog         int
 }
 
 func (f *Frame) TransmitTags(tagsLen int) {
